@@ -1,0 +1,10 @@
+target/*
+!target/*.jar
+.git/
+.gitignore
+docs/
+k8s/
+*.md
+.idea/
+*.iml
+Jenkinsfile

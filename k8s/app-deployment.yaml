@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: suspicious-events-detector
+  namespace: suspicious-events-detector
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: suspicious-events-detector
+  template:
+    metadata:
+      labels:
+        app: suspicious-events-detector
+    spec:
+      containers:
+        - name: suspicious-events-detector
+          image: docker.io/yaseenasaliya/suspicious-events-detector:latest
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: suspicious-events-detector-config
+            - secretRef:
+                name: suspicious-events-detector-secret
+          readinessProbe:
+            httpGet:
+              path: /health/is-ready
+              port: 8080
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health/is-alive
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"

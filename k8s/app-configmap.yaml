@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: suspicious-events-detector-config
+  namespace: suspicious-events-detector
+data:
+  MYSQL_HOST: "mysql.suspicious-events-detector.svc.cluster.local"
+  MYSQL_PORT: "3306"
+  MYSQL_DATABASE: "detector"
+  ENVIRONMENT: "prod"
+  SPRING_PROFILES_ACTIVE: "prod"
