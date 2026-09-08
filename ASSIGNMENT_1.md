@@ -2,14 +2,13 @@
 
 1. **CI/CD pipeline flow diagram** — [docs/freightos-pipline.png](docs/freightos-pipline.png)
 
-   ![CI/CD pipeline flow](docs/freightos-pipline.png)
 2. **Dockerfile** — [Dockerfile](Dockerfile)
 3. **Jenkins pipeline file** — [Jenkinsfile](Jenkinsfile)
 4. **Kubernetes deployment files** — [k8s/](k8s/)
 5. **Full console output for a successful Jenkins pipeline run** — [docs/jenkins-console-output.txt](docs/jenkins-console-output.txt)
-6. **API output screenshot, `threshold=10`** — [media/API-output.png](media/API-output.png)
+6. **API output screenshot, `threshold=10`** — [docs/API-output.png](docs/API-output.png)
 
-   ![API output for threshold=10](media/API-output.png)
+   ![API output for threshold=10](docs/API-output.png)
 7. **Additional test cases** — [SuspiciousEventsServiceTest.java](src/test/java/com.freightos.suseventsdetector/service/SuspiciousEventsServiceTest.java),
    covering:
    - a documented gap where the default `isAuthorized: true` query misses repeated **failed** auth attempts
